@@ -47,6 +47,11 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        kitchen: {
+          yellow: "hsl(var(--kitchen-yellow))",
+          dark: "hsl(var(--kitchen-dark))",
+          wood: "hsl(var(--kitchen-wood))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
