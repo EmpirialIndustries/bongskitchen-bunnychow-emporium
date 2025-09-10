@@ -14,64 +14,59 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="relative section-dark py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-kitchen-dark via-kitchen-wood to-kitchen-dark opacity-90"></div>
-        <div className="container mx-auto px-4 relative z-10">
+      {/* Hero Section - Uber Eats Style */}
+      <section className="bg-background py-16 lg:py-24">
+        <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                Authentic <span className="text-gradient">Kotas</span><br />
-                Made Fresh Daily
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground leading-tight">
+                Order delivery near you
               </h1>
-              <p className="text-xl text-secondary-foreground/80 mb-8 max-w-xl">
-                Experience the best South African kotas in town. Fresh ingredients, 
-                authentic flavors, and unmatched quality in every bite.
+              <p className="text-lg text-muted-foreground mb-8 max-w-lg">
+                Authentic South African kotas made with love and the finest ingredients. 
+                Fresh, delicious, and delivered to your door.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button asChild size="lg" className="btn-hero text-lg px-8 py-4">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                <Button asChild className="btn-hero text-base h-12 px-6">
                   <Link to="/menu">Order Now</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-black">
+                <Button variant="outline" asChild className="h-12 px-6 text-base">
                   <Link to="/about">Learn More</Link>
                 </Button>
               </div>
             </div>
             
             <div className="relative">
-              <div className="relative w-full max-w-lg mx-auto">
-                <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl"></div>
-                <img 
-                  src={kotaHero} 
-                  alt="Delicious Kota" 
-                  className="relative z-10 w-full h-auto rounded-2xl shadow-2xl"
-                />
-              </div>
+              <img 
+                src={kotaHero} 
+                alt="Delicious Kota sandwich with fresh ingredients" 
+                className="rounded-lg shadow-[var(--shadow-elevated)] w-full"
+              />
             </div>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-12 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-primary mb-2">5+</div>
+              <div className="text-2xl font-bold text-foreground mb-2">5+</div>
               <div className="text-sm text-muted-foreground">Years Serving</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary mb-2">10k+</div>
+              <div className="text-2xl font-bold text-foreground mb-2">10k+</div>
               <div className="text-sm text-muted-foreground">Happy Customers</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary mb-2">15+</div>
+              <div className="text-2xl font-bold text-foreground mb-2">15+</div>
               <div className="text-sm text-muted-foreground">Menu Items</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary mb-2">4.8</div>
+              <div className="text-2xl font-bold text-foreground mb-2">4.8</div>
               <div className="text-sm text-muted-foreground flex items-center justify-center gap-1">
-                <Star className="w-4 h-4 fill-primary text-primary" />
+                <Star className="w-4 h-4 fill-foreground text-foreground" />
                 Rating
               </div>
             </div>
@@ -80,13 +75,13 @@ const Index = () => {
       </section>
 
       {/* Featured Products */}
-      <section className="py-16">
+      <section className="py-12 lg:py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Popular <span className="text-gradient">Kotas</span>
+          <div className="text-center mb-8 lg:mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">
+              Popular Kotas
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Try our most loved kotas, crafted with authentic ingredients and served fresh
             </p>
           </div>
@@ -98,7 +93,7 @@ const Index = () => {
           </div>
           
           <div className="text-center">
-            <Button asChild size="lg" variant="outline" className="px-8">
+            <Button asChild size="lg" variant="outline" className="px-8 h-12">
               <Link to="/menu">View Full Menu</Link>
             </Button>
           </div>
@@ -106,74 +101,74 @@ const Index = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="section-dark py-16">
+      <section className="section-light py-12 lg:py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Why Choose <span className="text-gradient">Bong's Kitchen</span>
+          <div className="text-center mb-8 lg:mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">
+              Why Choose Bong's Kitchen
             </h2>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="w-8 h-8 text-primary-foreground" />
+              <div className="w-12 h-12 bg-foreground rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Clock className="w-6 h-6 text-background" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Fast Service</h3>
-              <p className="text-secondary-foreground/80">Quick preparation and delivery to satisfy your cravings</p>
+              <h3 className="text-lg font-bold mb-2 text-foreground">Fast Service</h3>
+              <p className="text-muted-foreground">Quick preparation and delivery to satisfy your cravings</p>
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="w-8 h-8 text-primary-foreground" />
+              <div className="w-12 h-12 bg-foreground rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Star className="w-6 h-6 text-background" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Quality Ingredients</h3>
-              <p className="text-secondary-foreground/80">Only the freshest and finest ingredients in every kota</p>
+              <h3 className="text-lg font-bold mb-2 text-foreground">Quality Ingredients</h3>
+              <p className="text-muted-foreground">Only the freshest and finest ingredients in every kota</p>
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-primary-foreground" />
+              <div className="w-12 h-12 bg-foreground rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Users className="w-6 h-6 text-background" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Local Favorite</h3>
-              <p className="text-secondary-foreground/80">Trusted by the community for authentic South African flavors</p>
+              <h3 className="text-lg font-bold mb-2 text-foreground">Local Favorite</h3>
+              <p className="text-muted-foreground">Trusted by the community for authentic South African flavors</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Location & Contact */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-12 lg:py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">
-                Visit Our <span className="text-gradient">Kitchen</span>
+              <h2 className="text-3xl font-bold mb-6 text-foreground">
+                Visit Our Kitchen
               </h2>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <MapPin className="w-5 h-5 text-primary" />
-                  <span>Mpheni Block A (R578), Next to Makhode shop</span>
+                  <MapPin className="w-5 h-5 text-foreground" />
+                  <span className="text-muted-foreground">Mpheni Block A (R578), Next to Makhode shop</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Clock className="w-5 h-5 text-primary" />
-                  <span>Open Daily: 9:00 AM - 9:00 PM</span>
+                  <Clock className="w-5 h-5 text-foreground" />
+                  <span className="text-muted-foreground">Open Daily: 9:00 AM - 9:00 PM</span>
                 </div>
               </div>
               <div className="mt-6">
-                <Button asChild className="btn-hero">
+                <Button asChild className="btn-hero h-12 px-6">
                   <Link to="/contact">Get Directions</Link>
                 </Button>
               </div>
             </div>
             
-            <div className="bg-card rounded-xl p-6">
-              <h3 className="text-xl font-bold mb-4">Call Us Now</h3>
+            <div className="bg-card rounded-lg p-6 shadow-[var(--shadow-card)]">
+              <h3 className="text-xl font-bold mb-4 text-foreground">Call Us Now</h3>
               <div className="space-y-3">
-                <a href="tel:0647623547" className="block text-lg font-medium hover:text-primary transition-colors">
+                <a href="tel:0647623547" className="block text-lg font-medium hover:text-foreground transition-colors text-muted-foreground">
                   064 762 3547
                 </a>
-                <a href="tel:0799743605" className="block text-lg font-medium hover:text-primary transition-colors">
+                <a href="tel:0799743605" className="block text-lg font-medium hover:text-foreground transition-colors text-muted-foreground">
                   079 974 3605
                 </a>
               </div>

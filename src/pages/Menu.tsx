@@ -24,12 +24,12 @@ const Menu = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="section-dark py-16">
+      <section className="bg-background py-12 lg:py-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Our <span className="text-gradient">Menu</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-foreground">
+            Our Menu
           </h1>
-          <p className="text-xl text-secondary-foreground/80 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Authentic South African kotas made with love and the finest ingredients
           </p>
         </div>
@@ -68,10 +68,10 @@ const Menu = () => {
       </section>
 
       {/* Extras & Add-ons */}
-      <section className="section-dark py-16">
+      <section className="section-light py-12 lg:py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">
-            Extras & <span className="text-gradient">Add-ons</span>
+          <h2 className="text-3xl lg:text-4xl font-bold text-center mb-8 text-foreground">
+            Extras & Add-ons
           </h2>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
