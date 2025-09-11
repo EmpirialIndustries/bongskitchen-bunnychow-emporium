@@ -158,4 +158,10 @@
   .search-input {
     @apply bg-background border border-border rounded-lg px-4 py-3 focus:ring-2 focus:ring-ring focus:border-transparent transition-all duration-200;
   }
+  
+  /* iOS style icons */
+  .ios-icon {
+    @apply transition-all duration-200 hover:scale-110;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+  }
 }
