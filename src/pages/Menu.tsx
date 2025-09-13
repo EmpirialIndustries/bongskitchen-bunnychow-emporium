@@ -2,8 +2,9 @@ import { useState } from "react";
 import { ProductCard } from "@/components/ui/product-card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
 import { products, extras, chips } from "@/lib/products";
-import { ShoppingCart, Phone } from "lucide-react";
+import { ShoppingCart, Phone, MapPin, Search, Home, User, Heart, Menu as MenuIcon } from "lucide-react";
 import bongLogo from "@/assets/bongs-kitchen-logo.png";
 import kotaHero from "@/assets/kota-hero.jpg";
 
@@ -23,110 +24,171 @@ const Menu = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
+      {/* Mobile-First Header */}
       <header className="sticky top-0 z-50 w-full bg-background border-b border-border">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+        <div className="px-4 h-16 flex items-center justify-between">
+          {/* Left: Menu/Logo */}
           <div className="flex items-center gap-3">
-            <img src={bongLogo} alt="Bong's Kitchen" className="h-10 w-auto" />
-            <span className="text-xl font-bold text-foreground">Bong's Kitchen</span>
+            <Button variant="ghost" size="sm" className="md:hidden">
+              <MenuIcon size={20} />
+            </Button>
+            <img src={bongLogo} alt="Bong's Kitchen" className="h-8 w-auto" />
+            <div className="hidden md:block">
+              <span className="text-lg font-bold">Bong's Kitchen</span>
+            </div>
           </div>
           
-          <div className="flex items-center gap-4">
-            <a href="tel:+27123456789" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-              <Phone size={18} className="ios-icon" />
-              <span className="hidden md:inline">011 123 4567</span>
-            </a>
-            <Button variant="outline" size="sm" className="flex items-center gap-2">
-              <ShoppingCart size={18} className="ios-icon" />
-              <span className="text-sm">0</span>
+          {/* Right: Location & Cart */}
+          <div className="flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-2 text-muted-foreground">
+              <MapPin size={16} />
+              <span className="text-sm">Johannesburg, SA</span>
+            </div>
+            <Button variant="ghost" size="sm">
+              <ShoppingCart size={20} />
+              <span className="ml-1 text-sm">0</span>
             </Button>
           </div>
         </div>
       </header>
-      
-      {/* Hero Section with Background */}
-      <section 
-        className="relative py-24 lg:py-32 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${kotaHero})` }}
-      >
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
-            Our Menu
-          </h1>
-          <p className="text-lg text-white/90 max-w-2xl mx-auto">
-            Authentic South African kotas made with love and the finest ingredients
-          </p>
-        </div>
-      </section>
 
-      {/* Category Filter */}
-      <section className="py-8 border-b">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map((category) => (
-              <Button
-                key={category.id}
-                variant={activeCategory === category.id ? "default" : "outline"}
-                onClick={() => setActiveCategory(category.id)}
-                className="gap-2"
-              >
-                {category.name}
-                <Badge variant="secondary" className="text-xs">
-                  {category.count}
-                </Badge>
-              </Button>
-            ))}
+      {/* Location Bar - Mobile */}
+      <div className="md:hidden px-4 py-3 bg-secondary/50 border-b">
+        <div className="flex items-center gap-2 text-muted-foreground">
+          <MapPin size={16} className="text-orange" />
+          <span className="text-sm font-medium">Deliver to Johannesburg, SA</span>
+        </div>
+      </div>
+
+      {/* Search Bar */}
+      <div className="px-4 py-4 bg-background">
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={18} />
+          <Input 
+            placeholder="Search for kotas..." 
+            className="pl-10 h-12 bg-secondary border-0 rounded-xl"
+          />
+        </div>
+      </div>
+
+      {/* Featured Promo Banner */}
+      <div className="px-4 pb-6">
+        <div 
+          className="relative h-32 md:h-40 rounded-2xl overflow-hidden bg-gradient-to-r from-orange to-orange/80"
+          style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${kotaHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        >
+          <div className="absolute inset-0 p-6 flex flex-col justify-center">
+            <h2 className="text-white text-xl md:text-2xl font-bold mb-2">
+              Free delivery on orders over R100
+            </h2>
+            <p className="text-white/90 text-sm mb-3">
+              Authentic South African kotas delivered fresh
+            </p>
+            <Button size="sm" className="bg-white text-orange hover:bg-white/90 w-fit">
+              Order Now
+            </Button>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Products Grid */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+      {/* Category Selection */}
+      <div className="px-4 pb-6">
+        <h3 className="text-lg font-semibold mb-4">Select by Category</h3>
+        <div className="flex gap-3 overflow-x-auto pb-2">
+          {categories.map((category) => (
+            <Button
+              key={category.id}
+              variant={activeCategory === category.id ? "default" : "outline"}
+              onClick={() => setActiveCategory(category.id)}
+              className={`flex-shrink-0 rounded-full px-6 ${
+                activeCategory === category.id 
+                ? "bg-orange text-white hover:bg-orange/90" 
+                : "border-border hover:bg-secondary"
+              }`}
+            >
+              {category.name}
+            </Button>
+          ))}
         </div>
-      </section>
+      </div>
 
-      {/* Extras & Add-ons */}
-      <section className="section-light py-12 lg:py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl lg:text-4xl font-bold text-center mb-8 text-foreground">
-            Extras & Add-ons
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Extras */}
-            <div className="bg-card rounded-xl p-6">
-              <h3 className="text-xl font-bold mb-4 text-foreground">Extras</h3>
-              <div className="space-y-3">
-                {extras.map((extra, index) => (
-                  <div key={index} className="flex justify-between items-center">
-                    <span className="text-foreground">{extra.name}</span>
-                    <Badge className="price-badge">R{extra.price}</Badge>
+      {/* Products Section */}
+      <div className="px-4 pb-20">
+        <div className="flex items-center justify-between mb-6">
+          <h3 className="text-lg font-semibold">
+            {activeCategory === 'all' ? 'All Items' : categories.find(c => c.id === activeCategory)?.name}
+          </h3>
+          <Button variant="ghost" size="sm" className="text-orange">
+            See All
+          </Button>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {filteredProducts.map((product) => (
+            <div key={product.id} className="bg-card rounded-2xl overflow-hidden shadow-sm border border-border hover:shadow-md transition-shadow">
+              <div className="aspect-video bg-secondary relative overflow-hidden">
+                <img 
+                  src={kotaHero} 
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-3 right-3">
+                  <Button size="sm" variant="ghost" className="bg-white/80 hover:bg-white w-8 h-8 p-0 rounded-full">
+                    <Heart size={16} />
+                  </Button>
+                </div>
+              </div>
+              
+              <div className="p-4">
+                <div className="flex justify-between items-start mb-2">
+                  <h4 className="font-semibold text-base">{product.name}</h4>
+                  <span className="text-lg font-bold">R{product.price}</span>
+                </div>
+                
+                <p className="text-muted-foreground text-sm mb-3 line-clamp-2">
+                  {product.description}
+                </p>
+                
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      ⭐ 4.5
+                    </span>
+                    <span>•</span>
+                    <span>20-25 mins</span>
                   </div>
-                ))}
+                  
+                  <Button size="sm" className="bg-orange hover:bg-orange/90 text-white rounded-full px-4">
+                    Add
+                  </Button>
+                </div>
               </div>
             </div>
-
-            {/* Chips */}
-            <div className="bg-card rounded-xl p-6">
-              <h3 className="text-xl font-bold mb-4 text-foreground">Chips</h3>
-              <div className="space-y-3">
-                {chips.map((chip, index) => (
-                  <div key={index} className="flex justify-between items-center">
-                    <span className="text-foreground">{chip.name}</span>
-                    <Badge className="price-badge">R{chip.price}</Badge>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
-      </section>
+      </div>
+
+      {/* Bottom Navigation - Mobile */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-background border-t border-border">
+        <div className="flex items-center justify-around py-2">
+          <Button variant="ghost" className="flex flex-col items-center py-2 px-3">
+            <Home size={20} className="text-orange" />
+            <span className="text-xs mt-1 text-orange">Home</span>
+          </Button>
+          <Button variant="ghost" className="flex flex-col items-center py-2 px-3">
+            <Search size={20} className="text-muted-foreground" />
+            <span className="text-xs mt-1 text-muted-foreground">Search</span>
+          </Button>
+          <Button variant="ghost" className="flex flex-col items-center py-2 px-3">
+            <ShoppingCart size={20} className="text-muted-foreground" />
+            <span className="text-xs mt-1 text-muted-foreground">Cart</span>
+          </Button>
+          <Button variant="ghost" className="flex flex-col items-center py-2 px-3">
+            <User size={20} className="text-muted-foreground" />
+            <span className="text-xs mt-1 text-muted-foreground">Account</span>
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };

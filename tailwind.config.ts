@@ -52,6 +52,9 @@ export default {
           "gray-light": "hsl(var(--uber-gray-light))",
           "gray-medium": "hsl(var(--uber-gray-medium))",
         },
+        orange: {
+          DEFAULT: "hsl(var(--accent-orange))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
