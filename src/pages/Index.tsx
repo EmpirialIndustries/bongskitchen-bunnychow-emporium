@@ -1,4 +1,5 @@
 import { Navigation } from "@/components/ui/navigation";
+import { Footer } from "@/components/ui/footer";
 import { ProductCard } from "@/components/ui/product-card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -179,6 +180,8 @@ const Index = () => {
           </div>
         </div>
       </section>
+    </div>
+    <Footer />
     </div>
   );
 };

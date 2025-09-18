@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ProductCard } from "@/components/ui/product-card";
+import { Footer } from "@/components/ui/footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -189,6 +190,7 @@ const Menu = () => {
           </Button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

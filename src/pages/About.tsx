@@ -1,4 +1,5 @@
 import { Navigation } from "@/components/ui/navigation";
+import { Footer } from "@/components/ui/footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -234,6 +235,8 @@ const About = () => {
           </div>
         </div>
       </section>
+    </div>
+    <Footer />
     </div>
   );
 };
