@@ -260,7 +260,7 @@ const PrivacyPolicy = () => {
                 <div className="space-y-2 text-muted-foreground">
                   <p><strong>Phone:</strong> 064 762 3547 or 079 974 3605</p>
                   <p><strong>Address:</strong> Mpheni Block A (R578), Next to Makhode shop</p>
-                  <p><strong>Email:</strong> Through our <Link to="/contact" className="text-primary hover:underline">contact form</Link></p>
+                  <p><strong>Email:</strong> Through our <Link to="/contact" className=\"text-primary hover:underline">contact form</Link></p>
                 </div>
               </CardContent>
             </Card>
